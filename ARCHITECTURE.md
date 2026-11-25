@@ -10,11 +10,11 @@
 
 | Role | Full Name | Student ID | Braude Academic Email |
 | :--- | :--- | :--- | :--- |
-| **Student A (Role A)** | `[Enter Student A Full Name]` | `[Enter ID]` | `[studentA@e.braude.ac.il]` |
-| **Student B (Role B)** | `[Enter Student B Full Name]` | `[Enter ID]` | `[studentB@e.braude.ac.il]` |
+| **Student A (Role A)** | `Bar Nahman` | `207851213` | `Bar.Nahman@e.barude.ac.il` |
+| **Student B (Role B)** | `Oudai Jumaa` | `206977902` | `Oudai.Jumaa@e.braude.ac.il` |
 
-* **Group Number:** `G[XX]`
-* **GitHub Repository URL:** `https://github.com/[Username]/Ex4_SmartParking_Design`
+* **Group Number:** `G2`
+* **GitHub Repository URL:** `https://github.com/Bar04111/Ex4_SmartParking_Design`
 
 ---
 
@@ -62,7 +62,18 @@ Following the **ECB (Entity-Control-Boundary)** architectural pattern:
 ## 5. Independent AI Prompt & Architectural Design Critique (Part 4)
 
 ```text
-[Paste your team's verbatim English Design Review prompt from Part 4 here]
+Based on the attached system story, ECB class diagram and sequence diagrams, review our design and
+check if it correctly handles the following two edge cases:
+
+1. Two students try to reserve the same last available parking spot at exactly the same time. Does our
+design prevent double booking using the version attribute and the tryReserve method?
+
+2. An EV driver disconnects the charging cable after 29 minutes but leaves the vehicle in the charging
+spot. Will our system still apply the idle penalty after 30 minutes?
+
+Explain whether our current diagrams handle these situations correctly, identify any weaknesses, and
+suggest improvements that we can implement in our existing UML diagrams while maintaining the
+ECB pattern.
 ```
 
 * **Improvement 1 Applied (Race Condition):** Added `version: int` and `tryReserve(expectedVersion: int): boolean` on `ParkingSpot` (and nested `alt acquired == true/false` in Sequence Diagram 1) to prevent simultaneous double-booking.
